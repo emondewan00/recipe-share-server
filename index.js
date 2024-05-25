@@ -14,6 +14,11 @@ connectDb()
   .then(() => {
     app.use("/users", userHandler);
     app.use("/recipes", recipeHandler);
+
+    app.get("/", (req, res) => {
+      res.json({ success: true, message: "server returned successfully" });
+    });
+
     app.listen(port, () => {
       console.log(`Example app listening on port ${port}!`);
     });
